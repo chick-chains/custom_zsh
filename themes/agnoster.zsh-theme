@@ -104,6 +104,12 @@ prompt_git() {
   fi
 }
 
+prompt_omnifocus(){
+  prompt_segment yellow black
+  count=`cat ~/.omnifocus-count`
+  echo -n "$count 🚩"
+}
+
 prompt_hg() {
   local rev status
   if $(hg id >/dev/null 2>&1); then
@@ -183,6 +189,7 @@ build_prompt() {
 
   prompt_status
   prompt_rvm
+  prompt_omnifocus
   prompt_virtualenv
   prompt_dir
   prompt_git
