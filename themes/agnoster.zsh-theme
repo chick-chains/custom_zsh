@@ -107,7 +107,7 @@ prompt_git() {
 prompt_omnifocus(){
   prompt_segment yellow black
   count=`cat ~/.omnifocus-count`
-  echo -n "$count 🚩"
+  echo -n "$count ⚐"
 }
 
 prompt_hg() {
