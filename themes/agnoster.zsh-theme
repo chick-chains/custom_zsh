@@ -104,12 +104,19 @@ prompt_git() {
   fi
 }
 
-prompt_omnifocus(){
-  prompt_segment yellow black
-  count=`cat ~/.omnifocus-count`
-  echo -n "$count ⚐"
+prompt_weight(){
+  prompt_segment cyan white
+  count=`cat ~/.weight-tracker-weight`
+  echo -n "  $count  "
 }
 
+
+prompt_points(){
+  color=`cat ~/.meal-color`
+  prompt_segment $color black
+  count=`cat ~/.meal-count`
+  echo -n "$count"
+}
 prompt_hg() {
   local rev status
   if $(hg id >/dev/null 2>&1); then
@@ -189,7 +196,8 @@ build_prompt() {
 
   prompt_status
   prompt_rvm
-  prompt_omnifocus
+  prompt_weight
+  prompt_points
   prompt_virtualenv
   prompt_dir
   prompt_git
